@@ -1,0 +1,13 @@
+{
+    "presets": ["@babel/preset-flow","@babel/preset-env", "@babel/preset-react"],
+   
+}
+
+// "plugins": ["transform-flow-strip-types"]
+
+// "start": "react-scripts start",
+// "build": "babel src/ -d build/",
+
+// "start": "webpack-dev-server --hot --inline",
+// "watch": "webpack -w -d",
+// "build": "webpack -p",
