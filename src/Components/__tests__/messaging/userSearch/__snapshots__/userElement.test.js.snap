@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  class="hoverOnlyMe"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+  style={
+    Object {
+      "border": "1px dotted gray",
+      "borderRadius": "20px",
+      "borderStyle": "ridge",
+      "display": "flex",
+      "flexDirection": "row",
+      "height": "8hv",
+      "margin": "1px 0",
+      "maxHeight": "100px",
+      "padding": 10,
+      "with": "100%",
+    }
+  }
+>
+  <img
+    alt="Avatar"
+    src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    style={
+      Object {
+        "borderRadius": "50%",
+        "float": "left",
+        "height": "10%",
+        "marginRight": "5%",
+        "maxHeight": "100%",
+        "maxWidth": "100%",
+        "width": "10%",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+        "margin": "5px 0px 5px 0",
+      }
+    }
+  >
+    <div>
+       User : 
+      user_0
+       
+    </div>
+    <div>
+       Msg : 
+      Message from user 1 to user 0
+    </div>
+  </div>
+</div>
+`;

@@ -23,19 +23,19 @@ const imageUsersUrls = [url1, url2]
 
 export let users:Array<User> = [];
 
-function makeid(length:number) {
-   let result:string           = '';
-   let characters:string       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   let charactersLength:number = characters.length;
+// function makeid(length:number) {
+//    let result:string           = '';
+//    let characters:string       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//    let charactersLength:number = characters.length;
    
-   for (let i:number = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
+//    for (let i:number = 0; i < length; i++ ) {
+//       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+//    }
+//    return result;
+// }
 
-for (let step:number = 0; step < 5; step++) {
-    users.push(new User(step, makeid(3) + '_user_' + step.toString(), imageUsersUrls[step%2]))
+for (let step:number = 0; step < 10; step++) {
+    users.push(new User(step, 'user_' + step.toString(), imageUsersUrls[step%2]))
 }
 
 

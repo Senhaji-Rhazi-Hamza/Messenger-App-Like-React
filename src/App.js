@@ -1,26 +1,25 @@
 // @flow
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-// import {john} from './models'
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import SignUpLogin from "./components/signUpLogin";
+import UserMessagingUI from "./components/messaging";
+//import './App.css';
 
 function App() {
+  const [logedIn, setLogedIn] = useState(false);
+  const [idMainUser, setIdMainUser] = useState(1);
+  const [idsUsers, setIdsUsers] = useState([0, 1, 2, 3, 4]);
+
+  const logIn = () => {
+    setLogedIn(true);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header"></header>
+      {!logedIn && <SignUpLogin logIn={logIn} />}
+      {logedIn && (
+        <UserMessagingUI idMainUser={idMainUser} idsUsers={idsUsers} />
+      )}
     </div>
   );
 }
