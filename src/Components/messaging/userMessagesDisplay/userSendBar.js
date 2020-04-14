@@ -4,7 +4,7 @@ const styles = {
   senderBarContainer: {
     display: "flex",
     flexDirection: "row",
-    height: "inherit",
+    height: "100%",
     //minHeight: "20hv",
     border: "groove",
     borderRadius: "20px",
@@ -27,6 +27,7 @@ const styles = {
     borderRadius: "40px",
     height: "90%",
     width: "10%",
+//    height : "100%",
     color: "white",
     marginRight: "5px",
     border: "none",

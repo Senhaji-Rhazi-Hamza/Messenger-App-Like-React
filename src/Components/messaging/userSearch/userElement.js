@@ -48,7 +48,7 @@ const UserElement = ({ idUser }: { idUser: number }) => {
   const user = getUser(idUser);
   const lstMsgUser = getUserLastReceivedMessage(user.id)
   return (
-    <div class = "hoverOnlyMe"  key={user.id} style={{ ...styles.userElementContainer }}  onMouseOver={enter} onMouseOut={leave}>
+    <div className = "hoverOnlyMe"  key={user.id} style={{ ...styles.userElementContainer }}  onMouseOver={enter} onMouseOut={leave}>
       <div style={{ ...styles.imgContainer }}>
       <img
         src={user.urlProfile}

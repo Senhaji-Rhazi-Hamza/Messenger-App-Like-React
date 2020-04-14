@@ -40,7 +40,7 @@ const SignUpLogin = ({logIn}) => {
             width: "100px",
             textAlign: "right",
           }}
-          for="email"
+          htmlFor="email"
         >
           Email:{" "}
         </label>
@@ -55,7 +55,7 @@ const SignUpLogin = ({logIn}) => {
             width: "100px",
             textAlign: "right",
           }}
-          for="password"
+          htmlFor="password"
         >
           Password:{" "}
         </label>
@@ -81,8 +81,8 @@ const SignUpLogin = ({logIn}) => {
       </div>
       {!login && (
         <div>
-          {/* <label style = {{ display: 'inline-block', width: '100px', textAlign: 'right' }} for="password">Password:  </label> */}
-          <label for="rememberMe"> Remember me </label>
+          {/* <label style = {{ display: 'inline-block', width: '100px', textAlign: 'right' }} htmlFor="password">Password:  </label> */}
+          <label htmlFor="rememberMe"> Remember me </label>
           <input type="checkbox" id="rememberMe" name="rememberMe"></input>
         </div>
       )}

@@ -1,5 +1,9 @@
 import React from "react";
-import { getUser } from "../../../models";
+import { getUser, getUserQuery,getUsersQuery } from "../../../models";
+//import { client} from "../../../../src";
+
+import { useQuery } from '@apollo/react-hooks';
+
 
 const styles = {
   userElementHeaderContainer: {
@@ -8,16 +12,18 @@ const styles = {
     backgroundColor : 'white',
     display: "flex",
     flexDirection: "row",
-    //height: "25hv",
-    height: "inherit",
+    height: "100%",
     border: "ridge",
+    minHeight : "20px",
   },
   userElementContainer: {
     display: "flex",
     flexDirection: "row",
     maxWidth: "100px",
-    Height: "inherit",
-    margin :  '5px'
+    height: "100%",
+    maxHeight: '150px',
+    margin :  '5px',
+    minHeight : '10px',
   },
   imgContainer: {
     borderRadius: "50%",
@@ -34,12 +40,18 @@ const styles = {
 };
 const UserHeaderSender = ({ idUser }: { idUser: number }) => {
   const user = getUser(idUser);
-  // const lstMsgUser = getUserLastReceivedMessage(user.id)
+  const { loading, error, data } = useQuery(getUserQuery(idUser));
+
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  //console.log(data.users[0])
   return (
     <div style={{ ...styles.userElementHeaderContainer }}>
       <div style={{ ...styles.userElementContainer }}>
         <img
-          src={user.urlProfile}
+          //src={data.users[0].url_profile}
+          src = {data.users[0].url_profile}
           alt="Avatar"
           style={{ ...styles.imgContainer }}
         ></img>

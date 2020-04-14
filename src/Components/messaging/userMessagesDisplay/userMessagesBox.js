@@ -5,7 +5,7 @@ import {getUserMessages } from "../../../models";
 
 const styles = {
     messagesBoxContainer : {
-    height : 'inherit',
+    height : '100%',
     display : 'flex',
     flexDirection : 'column',
     alignItems: "flex-end",
@@ -30,8 +30,8 @@ const styles = {
 };
 const UserMessageBox = ({ idUser }: { idUser: number }) => {
   const messages = getUserMessages(idUser)
-  const listItems = _.map(messages, (msg) => (
-    <span style = {{...styles.messageBubbleContainer}}>  {msg.msgTxt} </span>
+  const listItems = _.map(messages, (msg, index) => (
+    <span key ={index} style = {{...styles.messageBubbleContainer}}>  {msg.msgTxt} </span>
   ));
   
   return (

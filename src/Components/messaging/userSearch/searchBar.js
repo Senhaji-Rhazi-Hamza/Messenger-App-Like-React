@@ -7,7 +7,7 @@ const styles = {
     border: "groove",
     display: "flex",
     flexDirection: "column",
-    height: "25vh",
+    height: "100%",
     borderRadius: "15px",
     //margin : '10px'
   },
@@ -31,7 +31,9 @@ const styles = {
   userHeader: {
     display: "flex",
     flexDirection: "row",
-    //maxHeight: "200px",
+    //border : 'solid 1px'
+    // height : '100px',
+    maxHeight: "200px",
     // justifyContent : "space-between"
   },
   userHeaderImg: {
@@ -49,11 +51,14 @@ const SearchBar = ({ idUser }: { idUser: number }) => {
   return (
     <div style={{ ...styles.searchBarContainer }}>
       <div style={{ ...styles.userHeader }}>
-        <img
-          src={user.urlProfile}
-          alt="Avatar"
-          style={{ ...styles.userHeaderImg }}
-        ></img>
+        {/* <div> */}
+          <img
+            src={user.urlProfile}
+            alt="Avatar"
+            style={{ ...styles.userHeaderImg }}
+          ></img>
+        {/* </div> */}
+
         <h2> Discussion </h2>
         <div style={{ width: "20%", marginLeft: "auto" }}>
           <div style={{ display: "inline-block" }}>
@@ -83,7 +88,7 @@ const SearchBar = ({ idUser }: { idUser: number }) => {
               maxWidth: "100%",
               maxHeight: "100%",
               width: "70%",
-              height : "100%",
+              height: "100%",
               marginBottom: "0px",
             }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR12sS8u7WQVWVt7zjUD9FrfZrly099Xg_4FR3dwSNCnQdQqqlu&usqp=CAU"

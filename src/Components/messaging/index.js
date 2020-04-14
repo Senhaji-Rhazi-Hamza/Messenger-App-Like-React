@@ -10,8 +10,8 @@ const styles = {
   userMessagingUI: {
     display: "flex",
     flexDirection : 'row',
-    height: '100vh',
-    minHeight: '100vh',
+    height: '100%',
+    minHeight: '100%',
   },
   userSearchContainer : {
       maxWidth : '35%',
@@ -26,6 +26,9 @@ const styles = {
   userMessagingDisplayContainer : {
       maxWidth : '65%',
       width : '65%',
+      
+      height : '100%',
+     
     //  minHeigh: '100vh'
   }
 };

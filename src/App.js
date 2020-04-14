@@ -5,6 +5,9 @@ import SignUpLogin from "./components/signUpLogin";
 import UserMessagingUI from "./components/messaging";
 //import './App.css';
 
+import * as serviceWorker from "./serviceWorker";
+
+
 function App() {
   const [logedIn, setLogedIn] = useState(false);
   const [idMainUser, setIdMainUser] = useState(1);
@@ -14,13 +17,15 @@ function App() {
     setLogedIn(true);
   };
   return (
-    <div className="App">
-      <header className="App-header"></header>
-      {!logedIn && <SignUpLogin logIn={logIn} />}
-      {logedIn && (
-        <UserMessagingUI idMainUser={idMainUser} idsUsers={idsUsers} />
-      )}
-    </div>
+      <div className="App">
+        <header className="App-header"></header>
+        {!logedIn && 
+        <SignUpLogin logIn={logIn} />}
+        {logedIn && (
+          <UserMessagingUI idMainUser={idMainUser} idsUsers={idsUsers} />
+        )}
+      </div>
+    // </ApolloProvider>
   );
 }
 

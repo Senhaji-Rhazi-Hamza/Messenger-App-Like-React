@@ -19,8 +19,8 @@ type Props = {
 const UserSearch = ({idMainUser, idsUsers}:Props) => {
   return (
       <div style = {{...styles.userSearchContainer}}> 
-      <div style = {{ height : '25vh'}}> <SearchBar idUser = {idMainUser}> </SearchBar></div>
-      <div style = {{ height : '75vh'}}>   <UsersList idsUsers = {idsUsers}> </UsersList></div>
+      <div style = {{ height : '45%'}}> <SearchBar idUser = {idMainUser}> </SearchBar></div>
+      <div style = {{ height : '75%'}}>   <UsersList idsUsers = {idsUsers}> </UsersList></div>
       </div>
     );
 }
