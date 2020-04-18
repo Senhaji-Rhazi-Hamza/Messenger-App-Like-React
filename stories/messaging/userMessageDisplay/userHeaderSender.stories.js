@@ -7,6 +7,6 @@ export default {
   component: UserHeaderSender,
 };
 
-export const Default = () => <UserHeaderSender idUser = {0}></UserHeaderSender>;
+export const Default = () => <UserHeaderSender idUser = {1}></UserHeaderSender>;
 
 

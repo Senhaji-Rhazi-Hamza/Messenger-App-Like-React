@@ -1,6 +1,6 @@
 // @flow
 import _ from "lodash";
-import React from "react";
+import React, {useState} from "react";
 //import { getUser, getUserLastReceivedMessage } from "../../../models";
 import UserElement from "./userElement";
 
@@ -16,9 +16,18 @@ const styles = {
   },
 };
 
-const UsersList = ({idsUsers} :{idsUsers: Array<number>}) => {
+const UsersList = ({idsUsers, updateIdMainFriendUser,  idMainFriendUser} :{idsUsers: Array<number>,  updateIdMainFriendUser ? :(updateIdMainFriendUser:nubmer) => void,  idMainFriendUser:number}) => {
+  const [selectedItem, setSelectedItem] = useState(idMainFriendUser)
+  const handleClick = (id:number, e) => {
+    if (typeof updateIdMainFriendUser != 'undefined') {
+       updateIdMainFriendUser(id)
+       setSelectedItem(id)
+      // console.log(id)
+    }
+    
+  }
   const listItems = _.map(idsUsers, (id) => (
-    <span key = {id}> <UserElement  idUser={id}> </UserElement> </span>
+    <span key = {id} onClick={(e) => handleClick(id, e)}> <UserElement  selected = {selectedItem === id} idMainFriendUser = {idMainFriendUser} idUser={id}> </UserElement> </span>
   ));
 
   return <div style={{ ...styles.userListContainer }}> {listItems} </div>;

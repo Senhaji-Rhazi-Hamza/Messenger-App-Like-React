@@ -3,12 +3,6 @@ import { messagesUsers } from "./Message";
 export { default as Message, messagesUsers } from "./Message";
 export { default as User, users, getUser,getUserQuery, getUsersQuery} from "./User";
 
-// export function getUser(id: number) {
-//   if (id < users.length) {
-//     return users[id];
-//   }
-//   return users[0];
-// }
 
 export function getUserLastReceivedMessage(id: number) {
   if (id < users.length) {

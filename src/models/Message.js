@@ -1,5 +1,7 @@
 // @flow
 import { users } from "./User";
+import { gql } from "apollo-boost";
+
 class Message {
   idMessage: number;
   idReceiver: number;
@@ -30,3 +32,20 @@ for (let i: number = 0; i < users.length; i++) {
 }
 
 export default Message;
+
+
+export function getUserMessagesQuery(idUser : number) {
+
+return gql`
+    query {
+    messages(where: {id_receiver: {_eq: ${idUser}}}, order_by: {creation_time_stmp: desc}) {
+    creation_time_stmp
+    id_message
+    id_receiver
+    id_sender
+    msg_txt
+  }
+}
+`
+    
+}

@@ -1,4 +1,35 @@
-import React from "react";
+import React, { useState }  from "react";
+import {  useMutation } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+
+
+
+//const userSendBarMutation = ({ idUser, idMainFriendUser, msg_txt}: { idUser: number , idMainFriendUser:number, msg_txt:string}) => {
+  //return
+  
+const SEND_MSG =  gql`
+   mutation ($id_sender:bigint, $id_receiver:bigint, $msg_txt: String!)
+  {
+    insert_messages (
+      objects: [{
+        id_sender: $id_sender,
+        msg_txt :$msg_txt,
+        id_receiver:$id_receiver
+      }]
+    )
+    {
+       returning 
+      {
+        creation_time_stmp
+        id_message
+        id_receiver
+        id_sender
+        msg_txt
+      }
+    }
+  }
+
+`
 
 const styles = {
   senderBarContainer: {
@@ -27,7 +58,6 @@ const styles = {
     borderRadius: "40px",
     height: "90%",
     width: "10%",
-//    height : "100%",
     color: "white",
     marginRight: "5px",
     border: "none",
@@ -37,7 +67,17 @@ const styles = {
     fontSize: "16px",
   },
 };
-const UserSendBar = () => {
+const UserSendBar = ({ idUser, idMainFriendUser }: { idUser: number , idMainFriendUser:number}) => {
+  const [input, setInput] = useState("")
+  const [sendMsg, { data }] = useMutation(SEND_MSG);
+
+  const handleOnChange = (event) => {
+    setInput(event.target.value)
+  }
+  const handleSend = () => {
+  setInput("")
+  }
+
   return (
     <div style={{ ...styles.senderBarContainer }}>
       <input
@@ -45,8 +85,18 @@ const UserSendBar = () => {
         style={{ ...styles.senderBarInput }}
         placeholder="Envoyez un message"
         name="send"
+        onChange={(e) => handleOnChange(e)}
+        value = {input}
       ></input>
-      <button style={{ ...styles.buttonContainer }}>Envoyer</button>
+      <button type="submit" onClick={
+        e => {
+          e.preventDefault();
+          sendMsg({variables: { id_sender:idUser, id_receiver:idMainFriendUser, msg_txt: input } });
+          setInput("");
+          console.log("sent data")
+          console.log(data)
+        }
+      } style={{ ...styles.buttonContainer }}>Envoyer</button>
     </div>
   );
 };

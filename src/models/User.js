@@ -1,7 +1,6 @@
 // @flow
 
-import { client } from "../App";
- import { gql } from "apollo-boost";
+import { gql } from "apollo-boost";
 
 class User {
   id: number;
@@ -90,3 +89,4 @@ return gql`
       `
     
 }
+

@@ -14,13 +14,15 @@ const styles = {
 };
 type Props = {
   idMainUser : number, // foo is required.
-  idsUsers : Array<number>
+  idsUsers : Array<number>,
+  updateIdMainFriendUser ? :(updateIdMainFriendUser:nubmer) => void,
+  idMainFriendUser ? : number
 };
-const UserSearch = ({idMainUser, idsUsers}:Props) => {
+const UserSearch = ({idMainUser, idsUsers, updateIdMainFriendUser, idMainFriendUser}:Props) => {
   return (
       <div style = {{...styles.userSearchContainer}}> 
       <div style = {{ height : '45%'}}> <SearchBar idUser = {idMainUser}> </SearchBar></div>
-      <div style = {{ height : '75%'}}>   <UsersList idsUsers = {idsUsers}> </UsersList></div>
+      <div style = {{ height : '75%'}}> <UsersList idsUsers = {idsUsers} updateIdMainFriendUser = {updateIdMainFriendUser}  idMainFriendUser = {idMainFriendUser} > </UsersList></div>
       </div>
     );
 }

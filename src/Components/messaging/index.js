@@ -34,17 +34,19 @@ const styles = {
 };
 type Props = {
   idMainUser : number, // foo is required.
-  idsUsers : Array<number>
+  idsUsers : Array<number>,
+  idMainFriendUser? : number,
+  updateIdMainFriendUser ? :(idMainFriendUser:nubmer) => void
 };
-const UserMessagingUI = ({idMainUser, idsUsers}:Props) => {
+const UserMessagingUI = ({idMainUser, idsUsers, idMainFriendUser, updateIdMainFriendUser}:Props) => {
   return (
       <div style = {{...styles.userMessagingUI}}> 
         {/* <div style> IM HERE</div> */}
        <div style = {{...styles.userSearchContainer}}>
-        <UserSearch idMainUser = {idMainUser} idsUsers = {idsUsers}> </ UserSearch>
+        <UserSearch idMainUser = {idMainUser} idsUsers = {idsUsers}  idMainFriendUser = {idMainFriendUser} updateIdMainFriendUser = {updateIdMainFriendUser}> </ UserSearch>
        </div>
        <div style = {{...styles.userMessagingDisplayContainer}}>
-        <UserMessagesDisplay idUser = {idMainUser} > </ UserMessagesDisplay>
+        <UserMessagesDisplay idUser = {idMainUser}  idMainFriendUser = {idMainFriendUser}> </ UserMessagesDisplay>
        </div>
       </div>
     );

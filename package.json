@@ -46,6 +46,7 @@
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/react": "^5.3.18",
+    "apollo-storybook-react": "^0.2.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",

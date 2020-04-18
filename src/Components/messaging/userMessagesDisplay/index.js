@@ -11,17 +11,19 @@ const styles = {
     height : '100%'
   },
 };
-const UserMessagesDisplay = ({ idUser }: { idUser: number }) => {
+const UserMessagesDisplay = ({ idUser, idMainFriendUser}: { idUser: number , idMainFriendUser:number}) => {
+ // console.log("ID MAIN User")
+  //console.log(idMainFriendUser)
   return (
     <div style={{ ...styles.UserMessagesDisplayContainer }}>
-      <div style={{ height: "20vh", width: "100%" }}>
-        <UserHeaderSender idUser={idUser}> </UserHeaderSender>
+      <div style={{ height: "18vh", width: "100%" }}>
+        <UserHeaderSender idUser={idUser} > </UserHeaderSender>
       </div>
       <div style={{ overflow: "auto", height: "70vh",width: "100%" }}>
-        <UserMessagesBox idUser={idUser}> </UserMessagesBox>
+        <UserMessagesBox idUser={idUser} idMainFriendUser = {idMainFriendUser} > </UserMessagesBox>
       </div>
       <div  style={{ height: "10vh",  width: "100%", marginTop : '10px'}}>
-        <UserSendBar> </UserSendBar>
+        <UserSendBar idUser={idUser} idMainFriendUser = {idMainFriendUser}> </UserSendBar>
       </div>
     </div>
   );

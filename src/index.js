@@ -4,13 +4,13 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import ApolloClient from "apollo-boost";
-import {ApolloProvider } from "@apollo/react-hooks";
+import AppoloWrapper from "./appollo";
+//import ApolloClient from "apollo-boost";
+//import {ApolloProvider } from "@apollo/react-hooks";
 
-
-export const client = new ApolloClient({
-  uri: "https://test-messaging-app.herokuapp.com/v1/graphql",
-});
+//export const client = new ApolloClient({
+//  uri: "https://test-messaging-app.herokuapp.com/v1/graphql",
+//});
 
 // // or you can use `import gql from 'graphql-tag';` instead
 
@@ -29,11 +29,13 @@ export const client = new ApolloClient({
 //   .then((result) => console.log(result.data.users));
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  // <ApolloProvider client={client}>
+  <AppoloWrapper>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </ApolloProvider>,
+  </AppoloWrapper>,
+
   document.getElementById("root")
 );
 

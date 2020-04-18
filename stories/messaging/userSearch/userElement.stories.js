@@ -7,6 +7,6 @@ export default {
   component: UserElement,
 };
 
-export const Default = () => <UserElement></UserElement>;
+export const Default = () => <UserElement idUser = {1}></UserElement>;
 
 

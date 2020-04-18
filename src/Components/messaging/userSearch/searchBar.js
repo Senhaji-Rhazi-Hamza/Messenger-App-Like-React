@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
-import { getUser } from "../../../models";
+import { getUser, getUserQuery,getUsersQuery } from "../../../models";
+import { useQuery } from '@apollo/react-hooks';
+
 
 const styles = {
   searchBarContainer: {
@@ -41,19 +43,24 @@ const styles = {
     maxHeight: "100%",
     maxWidth: "20%",
     float: "left",
-    width: "100%",
-    height: "100%",
+    width: "100px",
+    height: "100px",
     marginRight: "5%",
+    objectFit : 'cover'
+
   },
 };
 const SearchBar = ({ idUser }: { idUser: number }) => {
-  const user = getUser(idUser);
+  const { loading, error, data } = useQuery(getUserQuery(idUser));
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   return (
     <div style={{ ...styles.searchBarContainer }}>
       <div style={{ ...styles.userHeader }}>
         {/* <div> */}
           <img
-            src={user.urlProfile}
+            src={data.users[0].url_profile}
             alt="Avatar"
             style={{ ...styles.userHeaderImg }}
           ></img>

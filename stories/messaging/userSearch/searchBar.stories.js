@@ -7,6 +7,6 @@ export default {
   component: SearchBar,
 };
 
-export const Default = () => <SearchBar idUser = {0}></SearchBar>;
+export const Default = () => <SearchBar idUser = {1}></SearchBar>;
 
 
