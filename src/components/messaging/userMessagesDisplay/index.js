@@ -17,7 +17,7 @@ const UserMessagesDisplay = ({ idUser, idMainFriendUser}: { idUser: number , idM
   return (
     <div style={{ ...styles.UserMessagesDisplayContainer }}>
       <div style={{ height: "18vh", width: "100%" }}>
-        <UserHeaderSender idUser={idUser} > </UserHeaderSender>
+        <UserHeaderSender idUser={ idMainFriendUser} > </UserHeaderSender>
       </div>
       <div style={{ overflow: "auto", height: "70vh",width: "100%" }}>
         <UserMessagesBox idUser={idUser} idMainFriendUser = {idMainFriendUser} > </UserMessagesBox>

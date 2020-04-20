@@ -8,7 +8,7 @@ import { gql } from "apollo-boost"
 const userMessagesBoxQuery = (idUser: number) => {
   return gql`
        query {
-        messages(where: {id_receiver: {_eq: ${idUser}}}, order_by: {creation_time_stmp: desc}) {
+        messages(where: {id_receiver: {_eq: ${idUser}}}, order_by: {creation_time_stmp: asc}) {
           creation_time_stmp
           id_message
           id_receiver

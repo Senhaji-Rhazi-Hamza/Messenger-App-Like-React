@@ -84,7 +84,7 @@ const UserElement = ({
       }
     }
   }
-  const { loading, error, data } = useQuery(userElementQuery(idUser));
+  const { loading, error, data } = useQuery(userElementQuery(idUser), {pollInterval: 1000});
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   
